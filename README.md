@@ -25,3 +25,5 @@ This is work towards Nisha and Joshua's talk for KubeCon NA 2019: https://kccncn
 - Guix
 - Buildroot
 - Debos 
+- Yocto Project
+
