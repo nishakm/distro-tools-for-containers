@@ -9,8 +9,16 @@ This is work towards Nisha and Joshua's talk for KubeCon NA 2019: https://kccncn
 
 ## Some Observations
 - "Deduplication" is a marketed plus for using CoW filesystems. Building on top of these filesystems saves CPU time and memory. However, the image itself is large. There is no "deduplication" when it comes to distributing the images.
-- Typical pattern for building an app is 1. Choose appropriate/smallest SDK/Framework container image 2. Choose appropriate/smallest deploy container if applicable  3. Find steps to "make it work" 4. Copy steps into Dockerfile 5. Build and deploy.
-- Kinds of container images 1. Dev OS 2. SDK/Framework on top of Dev OS 3. Runtime OS for SDK/Framework
+- Typical pattern for building an app is
+  1. Choose appropriate/smallest SDK/Framework container image
+  2. Choose appropriate/smallest deploy container if applicable
+  3. Find steps to "make it work"
+  4. Copy steps into Dockerfile
+  5. Build and deploy.
+- Kinds of container images
+  1. Dev OS
+  2. SDK/Framework on top of Dev OS
+  3. Runtime OS for SDK/Framework
 
 ## List of tools
 - Nixery
