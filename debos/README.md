@@ -36,12 +36,13 @@ Copied this binary into a bin folder
 - Size of tar.gz with python3.7 deps: 76M. Size of the image is 218MB vs 900MB python image currently on Dockerhub
 - No snapshotting. You'll have to do this yourself after building.
 - No source collection. You'll have to do this yourself, but this is reasonable as you can provide the exact debian bootstrap image.
-- Have to find out how to use a different shell
 - Really fast to get up and running
+- See included yaml file for an example of creating a base OS with python3.7
 
-### Setting up for python development
-
-1. apt-get update -y <-- update the repositories
-2. For python3.7 you need: bzip2 file libbz2-1.0 libexpat1 libmagic-mgc libmagic1 libmpdec2 libpython3.7-minimal libpython3.7-stdlib libreadline7 libsqlite3-0 libssl1.1 mime-support python3.7-minimal readline-common xz-utils bzip2-doc python3.7-venv python3.7-doc binutils binfmt-support readline-doc libbz2-1.0
-
-
+### Extra filesystem fixups to run with Docker
+- Untar the resulting tar.gz file as root into a working directory
+- `cd workingdir` and chown -R yourusername:yourusername`
+- `touch sbin/init` <-- Docker “injects” itself within containers by bind-mounting over /sbin/init
+- Tar everything back up
+- `docker import - debos < rootfs.tar`
+- `docker run -it debos /bin/bash`
