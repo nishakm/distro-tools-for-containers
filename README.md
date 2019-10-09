@@ -49,3 +49,13 @@ When comparing image construction tools the following factors are worth bearing 
 - Pony - what we want from a container rootfs creation tool (10mins)
 - Linux distro tools showdown - how existing tools match the reqts above (10mins)
 - Q&A (5mins)
+
+## Experiment (How to compare the tools)
+
+Build an app-specific container image with the tools. Compare on:
+- output image size
+- quality/presence of SBoM
+- required "work" (files created, lines written, etc)
+- ease of use/complexity of system
+- build time?
+- ease of image/rootfs update
