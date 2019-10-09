@@ -41,3 +41,11 @@ When comparing image construction tools the following factors are worth bearing 
 - hermetic: image builds should be isolated from each other and the host OS.
 - minimal: in an ideal world a container image would contain just enough of the Operating System (jeOS) to run its target workload, and no more.
 - identifiable: the contents of a container image must be of understood provenance, so that license compliance can be assured and security posture can be understood.
+
+## Agenda
+35min session
+- Intro
+- Problem (10mins)
+- Pony - what we want from a container rootfs creation tool (10mins)
+- Linux distro tools showdown - how existing tools match the reqts above (10mins)
+- Q&A (5mins)
