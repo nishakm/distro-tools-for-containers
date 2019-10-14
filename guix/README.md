@@ -45,3 +45,8 @@ It takes a very very long time to get a system ready for building.
 * [`guix refresh`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-refresh.html) - attempts to determine whether any packages are out of date and automatically update them.
 * [`guix system docker-image container.scm`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-system.html) will take a system definition as a Scheme file and create a Docker image matching that definiton
 * [`guix pack --format docker -S /opt/gnu/bin=bin mysql`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pack.html) will create a Docker container image containing the specified package(s) and its dependencies only
+    * `guix pack` will create a tarball containing files associated with the installed package and its dependencies. The directories have the package's checksum, name and version.
+    * The `docker` format will create a tarball that docker will accept with `docker load` but it will not run because the required `/sbin/init` inode is not present.
+    * Still haven't figured out how to get the corresponding source.
+    * Relevant command: `guix pack --format docker -S /opt/gnu/bin=bin go`, `docker load - guix-go < guix.tar.gz`, `docker run -t guix-go /opt/gnu/bin/go --version`
+    * The resulting docker image from `docker load` is around 700MB large, which is larger than the debian based golang container image.
