@@ -45,7 +45,7 @@ When comparing image construction tools the following factors are worth bearing 
 ## Agenda
 35min session
 - Intro
-- Problem (10mins)
+- Problem/why you should care (10mins)
 - Pony - what we want from a container rootfs creation tool (10mins)
 - Linux distro tools showdown - how existing tools match the reqts above (10mins)
 - Q&A (5mins)
