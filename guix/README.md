@@ -56,3 +56,6 @@ It takes a very very long time to get a system ready for building.
     * Still haven't figured out how to get the corresponding source.
     * Relevant command: `guix pack --format docker -S /opt/gnu/bin=bin go`, `docker load - guix-go < guix.tar.gz`, `docker run -t guix-go /opt/gnu/bin/go --version`
     * The resulting docker image from `docker load` is around 700MB large, which is larger than the debian based golang container image.
+
+## References
+- [A packaging tutorial for Guix](https://guix.gnu.org/blog/2018/a-packaging-tutorial-for-guix/)
