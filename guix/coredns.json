@@ -1,0 +1,10 @@
+{
+    "name": "coredns",
+    "version": "1.6.4",
+    "source": "https://github.com/coredns/coredns/archive/v1.6.4.tar.gz",
+    "build-system": "go",
+    "home-page": "https://coredns.io",
+    "synopsis": "CoreDNS: DNS and Service Discovery",
+    "description": "CoreDNS is a DNS server. It chains plugins. Each plugin performs a DNS function.",
+    "license": "Apache-2.0",
+}∑
