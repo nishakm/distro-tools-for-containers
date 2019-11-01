@@ -40,7 +40,19 @@ Following the binary installation steps installs guix as root user and allows ac
 
 It takes a very very long time to get a system ready for building.
 
+
+## Go image
+
+`$ guix pack --format=docker -S /bin=bin go`
+`$ docker load < /gnu/store/<HASH>-docker-pack.tar.gz`
+`$ docker run -it go:latest /bin/go version`
+`go version go1.12.7 linux/amd64`
+
+213M tarball
+
+
 ## Some notes of seemingly relevant commands/features:
+
 * [`guix import`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-import.html) - a mechanism to automatically create Guix package metadata. Can import from PyPI (`guix import pypi -r tern`), Ruby Gems, CPAN, CRAN, Nix, etc as well as taking generic info about a package in JSON format.
     * __Note__: when running Guix on a foreign distro `guix` needs to know how
       to locate certificates, see [X.509 Certificates](https://guix.gnu.org/manual/en/html_node/X_002e509-Certificates.html#X_002e509-Certificates)
@@ -54,12 +66,13 @@ It takes a very very long time to get a system ready for building.
       `guix build -f coredns.scm`
 * [`guix refresh`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-refresh.html) - attempts to determine whether any packages are out of date and automatically update them.
 * [`guix system docker-image container.scm`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-system.html) will take a system definition as a Scheme file and create a Docker image matching that definiton
-* [`guix pack --format docker -S /opt/gnu/bin=bin mysql`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pack.html) will create a Docker container image containing the specified package(s) and its dependencies only
+* [`guix pack --format=docker -S /opt/gnu/bin=bin mysql`](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pack.html) will create a Docker container image containing the specified package(s) and its dependencies only
     * `guix pack` will create a tarball containing files associated with the installed package and its dependencies. The directories have the package's checksum, name and version.
     * The `docker` format will create a tarball that docker will accept with `docker load` but it will not run because the required `/sbin/init` inode is not present.
     * Still haven't figured out how to get the corresponding source.
-    * Relevant command: `guix pack --format docker -S /opt/gnu/bin=bin go`, `docker load - guix-go < guix.tar.gz`, `docker run -t guix-go /opt/gnu/bin/go --version`
+    * Relevant command: `guix pack --format=docker -S /opt/gnu/bin=bin go`, `docker load - guix-go < guix.tar.gz`, `docker run -t guix-go /opt/gnu/bin/go --version`
     * The resulting docker image from `docker load` is around 700MB large, which is larger than the debian based golang container image.
 
 ## References
+
 - [A packaging tutorial for Guix](https://guix.gnu.org/blog/2018/a-packaging-tutorial-for-guix/)
