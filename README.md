@@ -59,3 +59,10 @@ Build an app-specific container image for [CoreDNS](https://github.com/coredns/c
 - ease of use/complexity of system
 - build time in vague terms? i.e. "this will take hours on your laptop" vs. "this takes only a few minutes on a laptop"?
 - ease of image/rootfs update
+
+
+## Addendum
+Recommend the following tools for container analysis and introspection:
+* [container-diff](https://github.com/GoogleContainerTools/container-diff)
+* [dive](https://github.com/wagoodman/dive)
+* [tern](https://github.com/vmware/tern)
