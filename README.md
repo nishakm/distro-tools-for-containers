@@ -45,17 +45,34 @@ When comparing image construction tools the following factors are worth bearing 
 ## Agenda
 35min session
 - Intro
-- Problem (10mins)
+- Problem/why you should care (10mins)
 - Pony - what we want from a container rootfs creation tool (10mins)
 - Linux distro tools showdown - how existing tools match the reqts above (10mins)
 - Q&A (5mins)
 
 ## Experiment (How to compare the tools)
+- Build a lightweight container image containing Go
+- Build an app-specific container image for (one of? all of?):
+  - [CoreDNS](https://github.com/coredns/coredns) (Go)
+  - [Fluentd]() (Ruby/Gem)
+  - [Envoy]() (C++/Bazel)
 
-Build an app-specific container image for [CoreDNS](https://github.com/coredns/coredns) using the tools. Compare on:
+Compare on:
 - output image size
 - quality/presence of SBoM
 - required "work" (files created, lines written, etc)
 - ease of use/complexity of system
 - build time in vague terms? i.e. "this will take hours on your laptop" vs. "this takes only a few minutes on a laptop"?
 - ease of image/rootfs update
+
+Note gaps:
+- build system support (i.e Guix lacks Go and Bazel, YP lacks Go, Bazel & Gem)
+- rough edges (Guix import tools are maintainer-centric, require hoops for non-maintainer; YP has a learning cliff; Nix has multiple unwieldy tools and a gnarly DSL)
+- everything other than YP doesn't have a SBoM generator
+
+
+## Addendum
+Recommend the following tools for container analysis and introspection:
+* [container-diff](https://github.com/GoogleContainerTools/container-diff)
+* [dive](https://github.com/wagoodman/dive)
+* [tern](https://github.com/vmware/tern)
