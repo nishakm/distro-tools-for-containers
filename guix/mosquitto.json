@@ -1,0 +1,10 @@
+{
+    "name": "mosquitto",
+    "version": "1.6.7",
+    "source": "https://mosquitto.org/files/source/mosquitto-1.6.7.tar.gz",
+    "build-system": "cmake",
+    "home-page": "https://mosquitto.org",
+    "synopsis": "An open source message broker that implements the MQTT protocol",
+    "description": "An open source message broker that implements the MQTT protocol",
+    "license": "EPL-1.0",
+}
