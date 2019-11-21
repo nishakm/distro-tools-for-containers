@@ -1,0 +1,27 @@
+{{- $image := or .image "mini_debian.tar" -}}
+
+architecture: amd64
+
+actions:
+  - action: debootstrap
+    suite: "buster"
+    components:
+      - main
+      - non-free
+    mirror: https://deb.debian.org/debian
+    variant: minbase
+
+  - action: apt
+    packages: [ golang ]
+
+  - action: run
+    chroot: true
+    command: echo debian > /etc/hostname
+
+  - action: run
+    chroot: true
+    command: mkdir -p /sbin/init
+
+  - action: pack
+    file: {{ $image }}
+
