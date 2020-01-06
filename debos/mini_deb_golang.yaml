@@ -11,17 +11,5 @@ actions:
     mirror: https://deb.debian.org/debian
     variant: minbase
 
-  - action: apt
-    packages: [ golang ]
-
-  - action: run
-    chroot: true
-    command: echo debian > /etc/hostname
-
-  - action: run
-    chroot: true
-    command: mkdir -p /sbin/init
-
   - action: pack
     file: {{ $image }}
-
